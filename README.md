@@ -2,14 +2,15 @@
 
 How to deploy Gitlab into an isolated kubernetes cluster.
 
-# STEPS
+## Steps
 1. Download into your laptop official docker images from internet.
 2. Export images into .tar files, and copy them into Master server.
 3. Create namespace "gitlab"
 4. Load, Tag and Push images into local docker registry.
-5. Create dirs on NFS server to store permanent data.
+5. Create directories on NFS server to store permanent data.
 6. Create and Claim persistent volumes on NFS server, then create Services and Deploy images.
 7. Access into Gitlab (register).
+
 
 
 ## 1. Download into your laptop official docker images from internet
@@ -152,7 +153,7 @@ If using ICP, at this step, we should see under ICP console these 3 new images:
 
 
 
-## 5. Create dirs on NFS server to store permanent data
+## 5. Create directories on NFS server to store permanent data
 ```
   $ ssh root@icp01-nfs-1
   $ mkdir /export/gitlab
@@ -208,16 +209,17 @@ Claim persistent volume, create service and deploy "gitlab" image
 ```
 
 Verification:
+```
   $ kubectl get nodes
+```
 
   Access into NFS server and check new files were created under:
+```
     - /export/gitlab/postgres-pv
     - /export/gitlab/redis-pv
     - /export/gitlab/gitlab-pv
-
+```
 
 
 ## 7. Access into Gitlab (register)
-```
 https://30008:gitLab
-```
