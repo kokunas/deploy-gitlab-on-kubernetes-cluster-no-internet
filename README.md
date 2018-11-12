@@ -27,7 +27,7 @@ Verify docker images:
   gitlab/gitlab-ce    latest              1ddc5d2b7c9b        2 days ago          1.56GB
   redis               5.0.0-alpine        05635ee9e1c7        2 weeks ago         40.8MB
   postgres            11.0-alpine         47510d0ec468        2 weeks ago         71.6MB
-```
+
 
 IMPORTANT:
 Image's versions change oftently. To check latest available, go to their official web sites:
@@ -196,3 +196,4 @@ Verification:
 7. Access into Gitlab (register)
 --------------------------------
 https://30008:gitLab
+```
