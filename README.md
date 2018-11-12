@@ -146,7 +146,7 @@ If using ICP, at this step, we should see under ICP console these 3 new images:
 	   Container Images:
 		   - gitlab/gitlab-ce
 		   - gitlab/postgres
-       - gitlab/redis
+		   - gitlab/redis
 
 	   Namespaces:
     	 - gitlab
@@ -222,4 +222,5 @@ Verification:
 
 
 ## 7. Access into Gitlab (register)
-https://30008:gitLab
+
+https://10.71.9.10:30008/gitLab
