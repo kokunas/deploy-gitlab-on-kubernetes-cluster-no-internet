@@ -164,7 +164,7 @@ If using ICP, at this step, we should see under ICP console these 3 new images:
 
 
 ## 6. Create and Claim persistent volumes on NFS server, then create Services and Deploy images
-IMPORTANT:
+**IMPORTANT:**
 Yes, this can be done through a Helm template, or even merging actions like persistent's volumes creation.
 I just run "yaml's" one by one for learning purposes.
 
