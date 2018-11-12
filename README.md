@@ -11,9 +11,8 @@ How to deploy Gitlab into an isolated kubernetes cluster.
 6. Create and Claim persistent volumes on NFS server, then create Services and Deploy images.
 7. Access into Gitlab (register).
 
------------------------------------------------------------------
+
 ## 1. Download into your laptop official docker images from internet
------------------------------------------------------------------
 To do that, docker must be installed first (https://docs.docker.com/install/).
 
 Pull docker images:
@@ -45,9 +44,8 @@ https://hub.docker.com/_/redis/
 https://hub.docker.com/r/gitlab/
 
 
-------------------------------------------------------------------------
+
 ## 2. Export docker images into tar files, and copy them into Master server
-------------------------------------------------------------------------
 Export docker images to make them portable:
 ```
   $ docker save postgres  >  postgres-alpine.tar
@@ -73,9 +71,8 @@ Then copy these 3 .tar files into "Master" server (ie: under /tmp)
   -rw-r--r-- 1 root root   42062336 Nov  7 17:55 redis-alpine.tar
 ```
 
-----------------------------
+
 ## 3. Create namespace "gitlab"
-----------------------------
 On Master server run:
 ```
   $ ssh root@icp01-master-1
@@ -89,9 +86,8 @@ On Master server run:
   $ kubectl get namespaces | grep gitlab
 ```
 
-----------------------------------------------------------------
+
 ## 4. Load, Tag and Push images into "Master" local docker registry
-----------------------------------------------------------------
 Login into Kubernetes cluster:
 ```
   $ ssh root@icp01-master-1
@@ -155,9 +151,8 @@ If using ICP, at this step, we should see under ICP console these 3 new images:
     	 - gitlab
 
 
-----------------------------------------------------
+
 ## 5. Create dirs on NFS server to store permanent data
-----------------------------------------------------
 ```
   $ ssh root@icp01-nfs-1
   $ mkdir /export/gitlab
@@ -166,9 +161,8 @@ If using ICP, at this step, we should see under ICP console these 3 new images:
   $ mkdir /export/gitlab/gitlab-pv
 ```
 
---------------------------------------------------------------------------------------------
+
 ## 6. Create and Claim persistent volumes on NFS server, then create Services and Deploy images
---------------------------------------------------------------------------------------------
 IMPORTANT:
 Yes, this can be done through a Helm template, or even merging actions like persistent's volumes creation.
 I just run "yaml's" one by one for learning purposes.
@@ -222,9 +216,8 @@ Verification:
     - /export/gitlab/gitlab-pv
 
 
---------------------------------
+
 ## 7. Access into Gitlab (register)
---------------------------------
 ```
 https://30008:gitLab
 ```
