@@ -32,7 +32,7 @@ Verify docker images:
   postgres            11.0-alpine         47510d0ec468        2 weeks ago         71.6MB
 ```
 
-IMPORTANT:
+**IMPORTANT**:
 Image's versions change oftently. To check latest available, go to their official web sites:
 
 - postgres image (use alpine image edition, which is much lighter than postgres default one)
