@@ -103,7 +103,6 @@ Create namespace "gitlab"
 
 ## 4. Load, Tag and Push images into "Master" local docker registry
 
-
 Load docker images locally ("Master" server):
 ```
   $ cd /tmp
@@ -186,32 +185,32 @@ Before anything, copy and extract "yamls.tar" file into "Master" server.
   $ cd /tmp/yamls
 ```
 
-Create "postgres-pv" persistent volume (on NFS server)
+  # Create "gitlab-postgres-pv" persistent volume (on NFS server)
 ```
-  $ kubectl create -f kubernetes/postgres-pv.yaml
+  $ kubectl create -f postgres-pv.yaml
 ```
 
-Claim persistent volume, create service and deploy "postgres" image
+  # Claim persistent volume, create service and deploy "gitlab-postgres" image
 ```
   $ kubectl create -f postgres.yaml
 ```
 
-Create "redis-pv" persistent volume (on NFS server)
+  # Create "gitlab-redis-pv" persistent volume (on NFS server)
 ```
   $ kubectl create -f redis-pv.yaml
 ```
 
-Claim persistent volume, create service and deploy "redis" image
+  # Claim persistent volume, create service and deploy "gitlab-redis" image
 ```
   $ kubectl create -f redis.yaml
 ```
 
-Create "gitlab-pv" persistent volume (on NFS server)
+  # Create "gitlab-pv" persistent volume (on NFS server)
 ```
   $ kubectl create -f gitlab-pv.yaml
 ```
 
-Claim persistent volume, create service and deploy "gitlab" image
+  # Claim persistent volume, create service and deploy "gitlab" image
 ```
   $ kubectl create -f gitlab.yaml
 ```
@@ -223,8 +222,8 @@ Verification:
 
   Access into NFS server and check new files were created under:
 ```
-    - /export/gitlab/postgres-pv
-    - /export/gitlab/redis-pv
+    - /export/gitlab/gitlab-postgres-pv
+    - /export/gitlab/gitlab-redis-pv
     - /export/gitlab/gitlab-pv
 ```
 
