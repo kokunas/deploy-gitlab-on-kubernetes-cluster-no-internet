@@ -220,7 +220,7 @@ Verification:
   $ kubectl get nodes
 ```
 
-  Access into NFS server and check new files were created under:
+Access into NFS server and check new files were created under:
 ```
     - /export/gitlab/gitlab-postgres-pv
     - /export/gitlab/gitlab-redis-pv
