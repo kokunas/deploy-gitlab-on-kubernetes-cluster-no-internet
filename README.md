@@ -185,32 +185,32 @@ Before anything, copy and extract "yamls.tar" file into "Master" server.
   $ cd /tmp/yamls
 ```
 
-  --- Create "gitlab-postgres-pv" persistent volume (on NFS server)
+  <!--- Create "gitlab-postgres-pv" persistent volume (on NFS server) -->
 ```
   $ kubectl create -f postgres-pv.yaml
 ```
 
-  --- Claim persistent volume, create service and deploy "gitlab-postgres" image
+  <!--- Claim persistent volume, create service and deploy "gitlab-postgres" image -->
 ```
   $ kubectl create -f postgres.yaml
 ```
 
-  --- Create "gitlab-redis-pv" persistent volume (on NFS server)
+  <!--- Create "gitlab-redis-pv" persistent volume (on NFS server) -->
 ```
   $ kubectl create -f redis-pv.yaml
 ```
 
-  --- Claim persistent volume, create service and deploy "gitlab-redis" image
+  <!--- Claim persistent volume, create service and deploy "gitlab-redis" image -->
 ```
   $ kubectl create -f redis.yaml
 ```
 
-  --- Create "gitlab-pv" persistent volume (on NFS server)
+  <!--- Create "gitlab-pv" persistent volume (on NFS server) -->
 ```
   $ kubectl create -f gitlab-pv.yaml
 ```
 
-  # Claim persistent volume, create service and deploy "gitlab" image
+  <!--- Claim persistent volume, create service and deploy "gitlab" image -->
 ```
   $ kubectl create -f gitlab.yaml
 ```
