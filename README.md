@@ -74,27 +74,35 @@ Then copy these 3 .tar files into "Master" server (ie: under /tmp)
 
 
 ## 3. Create namespace "gitlab"
-On Master server run:
-```
-  $ ssh root@icp01-master-1
-  $ cd /tmp
-  $ cat gitlab-namespace.yaml
-    apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: gitlab
-  $ kubectl create -f ./gitlab-namespace.yaml
-  $ kubectl get namespaces | grep gitlab
-```
-
-
-## 4. Load, Tag and Push images into "Master" local docker registry
-Login into Kubernetes cluster:
+Login into "Master" server:
 ```
   $ ssh root@icp01-master-1
   $ docker login mycluster.icp:8500
   admin / admin
 ```
+
+Create namespace "gitlab"
+```
+  $ cat gitlab-namespace.json
+    {
+      "kind": "Namespace",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "gitlab",
+        "labels": {
+          "name": "gitlab"
+        }
+      }
+    }
+
+  $ kubectl create -f ./gitlab-namespace.json
+  $ kubectl get namespaces | grep gitlab
+      gitlab         Active    5m
+```
+
+
+## 4. Load, Tag and Push images into "Master" local docker registry
+
 
 Load docker images locally ("Master" server):
 ```
